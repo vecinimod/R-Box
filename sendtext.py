@@ -4,7 +4,7 @@ import os
 import subprocess
 import re
 import time
-from .misc import *
+from misc import *
 
 
 # the main function
@@ -140,4 +140,3 @@ class RBoxSourceCodeCommand(sublime_plugin.TextCommand):
             return
         cmd = "source(\"" +  escape_dq(fname) + "\")"
         self.view.run_command("r_box_send_text", {"cmd": cmd})
-

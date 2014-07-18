@@ -1,7 +1,7 @@
 import sublime, sublime_plugin
 import os
 import re
-from . misc import *
+from misc import *
 
 class RBoxSourcePromptCommand(sublime_plugin.TextCommand):
 

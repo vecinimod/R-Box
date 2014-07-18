@@ -3,7 +3,7 @@ import sublime_plugin
 import os
 import json
 from itertools import chain
-from .misc import *
+from misc import *
 
 def load_jsonfile():
     jsonFilepath = os.path.join(sublime.packages_path(), 'R-Box', 'completions.json')
@@ -24,4 +24,3 @@ class RBoxCompletions(sublime_plugin.EventListener):
             self.completions = list(chain.from_iterable(j.values()))
             self.completions = [(p, p) for p in self.completions if type(p) == str ]
         return (self.completions,  sublime.INHIBIT_EXPLICIT_COMPLETIONS)
-
