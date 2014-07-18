@@ -5,7 +5,7 @@ import subprocess
 import re
 import sys
 if sys.platform == "win32":
-        from winreg import OpenKey, QueryValueEx, HKEY_LOCAL_MACHINE, KEY_READ
+        from _winreg import OpenKey, QueryValueEx, HKEY_LOCAL_MACHINE, KEY_READ
 from misc import *
 
 
