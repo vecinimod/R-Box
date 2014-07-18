@@ -4,10 +4,11 @@ import os
 import json
 from itertools import chain
 from misc import *
+import codecs
 
 def load_jsonfile():
     jsonFilepath = os.path.join(sublime.packages_path(), 'R-Box', 'completions.json')
-    jsonFile = open(jsonFilepath, "r", encoding="utf-8")
+    jsonFile = codecs.open(jsonFilepath, "r", encoding="utf-8")
     data = json.load(jsonFile)
     jsonFile.close()
     return data
@@ -22,5 +23,5 @@ class RBoxCompletions(sublime_plugin.EventListener):
         if not self.completions:
             j = dict(load_jsonfile())
             self.completions = list(chain.from_iterable(j.values()))
-            self.completions = [(p, p) for p in self.completions if type(p) == str ]
+            self.completions = [(p, p) for p in self.completions if type(p) == unicode ]
         return (self.completions,  sublime.INHIBIT_EXPLICIT_COMPLETIONS)
