@@ -3,12 +3,13 @@ import sublime_plugin
 import os
 import json
 import re
+import codecs
 from itertools import chain
-from .misc import *
+from misc import *
 
 def load_jsonfile():
     jsonFilepath = os.path.join(sublime.packages_path(), 'R-Box', 'completions.json')
-    jsonFile = open(jsonFilepath, "r", encoding="utf-8")
+    jsonFile = codecs.open(jsonFilepath, "r", encoding="utf-8")
     data = json.load(jsonFile)
     jsonFile.close()
     return data
@@ -26,9 +27,10 @@ class RBoxCompletions(sublime_plugin.EventListener):
         if not self.completions:
             j = dict(load_jsonfile())
             self.completions = list(chain.from_iterable(j.values()))
-            self.completions = [(p, ) for p in self.completions if type(p) == str ]
+            self.completions = [item for item in self.completions if type(item) == unicode ]
 
-        default_completions = [(item, ) for item in view.extract_completions(prefix) if len(item) > 3 and valid(item)]
+        completions = [(item, item) for item in self.completions if item[0] == prefix]
+        default_completions = [(item, item) for item in view.extract_completions(prefix) if len(item) > 3 and valid(item)]
 
-        r = list(set(self.completions+default_completions))
-        return (r,  0)
+        r = list(set(completions+default_completions))
+        return (r, 0)
