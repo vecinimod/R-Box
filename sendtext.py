@@ -10,6 +10,7 @@ def clean(cmd):
     cmd = cmd.rstrip('\n')
     if len(re.findall("\n", cmd)) == 0:
         cmd = cmd.lstrip()
+        print(cmd)
     return cmd
 
 
