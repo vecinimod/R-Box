@@ -100,6 +100,7 @@ def sendtext_ahk(cmd, progpath="", script="Rgui.ahk"):
     # "\n" is later removed in AutoHotkey script
     cmd = "\n"+cmd
     args = [ahk_path, ahk_script_path, progpath, cmd]
+    print(args)
     subprocess.Popen(args)
 
 
