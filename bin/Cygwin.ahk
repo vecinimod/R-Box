@@ -19,7 +19,7 @@ WinGet, cygwin_id, ID, ahk_class mintty
         clipboard = proc.time()`n
     }
 
-    ControlSend, ,{Shift down}{Insert}{Shift Up}, ahk_id "~"
+    ControlSend, ,{Shift down}{Insert}{Shift Up}, ~
     clipboard := oldclipboard
-    Pause
+    ;Pause
 ;}
