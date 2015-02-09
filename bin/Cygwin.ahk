@@ -4,7 +4,8 @@ WinGet, cygwin_id, ID, ahk_class mintty
 ; if not found, open cygwin
 if (cygwin_id != "")
 {
-    Outputdebug % dstring . "id=" . cygwin_id
+    ;Outputdebug % dstring . "id=" . cygwin_id
+    Outputdebug % dstring . "id=~"
 
     oldclipboard = %clipboard%
     if 0=2
