@@ -2,8 +2,8 @@
 WinGet, cygwin_id, ID, ahk_class mintty
 
 ; if not found, open cygwin
-if (cygwin_id != "")
-{
+;if (cygwin_id != "")
+;{
     ;Outputdebug % dstring . "id=" . cygwin_id
     Outputdebug % dstring . "id=~"
 
@@ -22,4 +22,4 @@ if (cygwin_id != "")
 
     ControlSend, ,{Shift down}{Insert}{Shift Up}, ahk_id %cygwin_id%
     clipboard := oldclipboard
-}
+;}
