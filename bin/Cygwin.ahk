@@ -5,7 +5,6 @@ WinGet, cygwin_id, ID, ahk_class mintty
 ;if (cygwin_id != "")
 ;{
     Outputdebug % dstring . "id=" . cygwin_id
-    Outputdebug % dstring . "id=~"
 
     oldclipboard = %clipboard%
     if 0=2
@@ -20,7 +19,7 @@ WinGet, cygwin_id, ID, ahk_class mintty
         clipboard = proc.time()`n
     }
 
-    ControlSend, ,{Shift down}{Insert}{Shift Up}, ahk_id %cygwin_id%
+    ControlSend, ,{Shift down}{Insert}{Shift Up}, ahk_id "~"
     clipboard := oldclipboard
     Pause
 ;}
