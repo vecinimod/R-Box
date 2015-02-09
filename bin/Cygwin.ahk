@@ -22,4 +22,5 @@ WinGet, cygwin_id, ID, ahk_class mintty
 
     ControlSend, ,{Shift down}{Insert}{Shift Up}, ahk_id %cygwin_id%
     clipboard := oldclipboard
+    Pause
 ;}
